@@ -70,28 +70,58 @@
                 <button class="boton-item">Agregar al Carrito</button>
             </div>
         </div>
-    </section>
+    
     <!-- carrito de compras -->
     <div class="carrito">
         <div class="header-carrito">
             <h2>Tu carrito</h2>
-
         </div>
 
         <div class="carrito-items">
             <div class="carrito-item">
-                <img src="./img/boxengasse.png" alt="reloj de lujo" >
+                <img src="./img/boxengasse.png" alt="reloj de lujo" width="80px">
                 <div class="carrito-item-detalles">
                     <span class="carrito-item-titulo">Box Engasse</span>
                     <div class="selector-cantidad">
                         <i class='bx bx-minus restar-cantidad'></i>
-                        <input type="text" value="1" class="carrito-item">
+                        <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                        <i class='bx bx-plus sumar-cantidad'></i>
                     </div>
+                    <span class="carrito-item-precio">$15.000</span>
                 </div>
+                <span class="btn-eliminar">
+                    <i class='bx bxs-trash-alt'></i>
+                </span>
+            </div>
+            <div class="carrito-item">
+                <img src="./img/englishrose.png" alt="reloj de lujo" width="80px" >
+                <div class="carrito-item-detalles">
+                    <span class="carrito-item-titulo">English Rose</span>
+                    <div class="selector-cantidad">
+                        <i class='bx bx-minus restar-cantidad'></i>
+                        <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                        <i class='bx bx-plus sumar-cantidad'></i>
+                    </div>
+                    <span class="carrito-item-precio">$30.000</span>
+                </div>
+                <span class="btn-eliminar">
+                    <i class='bx bxs-trash-alt'></i>
+                </span>
             </div>
         </div>
+        <div class="carrito-total">
+            <div class="fila">
+                <strong>Tu total</strong>
+                <span class="carrito-precio-total">
+                    $120,000.00
+                </span>
+            </div>
+            <button class="btn-pagar">Pagar: <i class='bx bxs-shopping-bag'></i></button>
+
+        </div>
     </div>
+    </section>  
 
-
+  <script src="./index.js"></script>  
 </body>
 </html>
