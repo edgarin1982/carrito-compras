@@ -1,6 +1,6 @@
 //variable que mantiene el estado visible del carrito
 
-const carritoVisible = false;
+var carritoVisible = false;
 
 //esperamos que todos los elementos de la pagina se caguen para continuar con el script
 
@@ -37,13 +37,16 @@ function ready() {
     const button = botonesAgregarCarrito[i];
     button.addEventListener("click", agregarAlCarritoClicked);
   }
+
+  //agregar funcionalidad al boton pagar
+  document.getElementsByClassName('btn-pagar')[0].addEventListener('click', pagarClicked)
 }
 
 //elimino el item del carrito
 
 function eliminarItemCarrito(e) {
   const buttonClicked = e.target;
-  buttonClicked.parentElement.remove();
+  buttonClicked.parentElement.parentElement.remove();
 
   //actualizar el total del carrito una vez que hemos eliminado un  item
   actualizarTotalCarrito();
@@ -132,6 +135,9 @@ function agregarAlCarritoClicked(e) {
 
   //la siguiente funcion agrega el elemento
   agregarItemAlCarrito(titulo, precio, imagenSrc);
+
+  //hacemos visible el carrito cuando agrega por primera vez
+  hacerVisibleCarrito();
 }
 
 function agregarItemAlCarrito(titulo, precio, imagenSrc) {
@@ -181,8 +187,30 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc) {
   //agregamos la funcionalidad de sumar del nuevo item
   
   const botonesRestarCantidad = item.getElementsByClassName('restar-cantidad')[0];
-  botonesSumarCantidad.addEventListener('click', restarCantidad);
-  
+  botonesRestarCantidad.addEventListener('click', restarCantidad);
+}
 
 
+function  pagarClicked(e) {
+    alert ("Gracias por su compra")
+       //eliminamos los elementos del carrito
+    var carritoItems = document.getElementsByClassName('carrito-items')[0];
+    while (carritoItems.hasChildNodes()) {
+        carritoItems.removeChild(carritoItems.firstChild);
+        
+    }
+    actualizarTotalCarrito();
+
+    //funcion que oculto el carrito
+    ocultarCarrito();
+}
+function hacerVisibleCarrito() {
+    carritoVisible = true;
+    var carrito = document.getElementsByClassName('carrito')[0];
+    carrito.style.marginRight = '0';
+    carrito.style.opacity = '1';
+
+    const items = document.getElementsByClassName(' contenedor-items')[0];
+    items.style.width = '60%';
+    
 }
